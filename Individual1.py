@@ -17,8 +17,7 @@
 
 class Payment:
 
-    def __init__(self, fullName=' ', salary=0, year=0, percent=0, daysWorked=0,
-                 workingDays=1):
+    def __init__(self, fullName=' ', salary=0, year=0, percent=0, daysWorked=0, workingDays=1):
         self.fullName = str(fullName)
         self.salary = int(salary)
         self.year = int(year)

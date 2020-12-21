@@ -132,7 +132,7 @@ if __name__ == '__main__':
     r1.display()
 
     r2 = Rational()
-    r2.read('hhhh')
+    r2.read('')
     r2.display()
 
     r3 = r2.add(r1)
