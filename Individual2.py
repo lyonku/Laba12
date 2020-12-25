@@ -44,13 +44,13 @@ class Real(Number):
         self.radical = 0
         self.Pi = 0
 
-        self.arbitraryRadical()
-        self.degreeCalculating()
+        self.arbitrary_radical()
+        self.degree_calculating()
 
-    def arbitraryRadical(self):
+    def arbitrary_radical(self):
         self.radical = pow(self.num3, (1 / self.degree))
 
-    def degreeCalculating(self):
+    def degree_calculating(self):
         self.Pi = math.pi ** self.degree
 
     def read(self):
@@ -60,8 +60,8 @@ class Real(Number):
         self.num3 = float(num3)
         self.degree = float(degree)
 
-        self.arbitraryRadical()
-        self.degreeCalculating()
+        self.arbitrary_radical()
+        self.degree_calculating()
 
     def display(self):
         print(f"Radical: {self.radical}")
