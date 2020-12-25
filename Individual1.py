@@ -17,8 +17,8 @@
 
 class Payment:
 
-    def __init__(self, fullName=' ', salary=0, year=0, percent=0, daysWorked=0, workingDays=1):
-        self.fullName = str(fullName)
+    def __init__(self, full_name=' ', salary=0, year=0, percent=0, daysWorked=0, workingDays=1):
+        self.full_name = str(full_name)
         self.salary = int(salary)
         self.year = int(year)
         self.percent = float(percent)
@@ -29,29 +29,29 @@ class Payment:
         self.handAmount = 0
         self.exp = 0
 
-        self.accruedAmount()
-        self.withheldAmount()
-        self.handedAmount()
+        self.accrued_amount()
+        self.withheld_amount()
+        self.handed_amount()
         self.experience()
 
     def read(self):
-        fullName = input('Enter your full name: ')
+        full_name = input('Enter your full name: ')
         salary = input('Enter salary: ')
         year = input('Enter year of joining: ')
         percent = input('Enter percentage of premium: ')
         daysWorked = input('Enter number of days worked in a month: ')
         workingDays = input('Enter number of working days in a month: ')
 
-        self.fullName = fullName
+        self.full_name = full_name
         self.salary = int(salary)
         self.year = int(year)
         self.percent = float(percent)
         self.daysWorked = int(daysWorked)
         self.workingDays = int(workingDays)
 
-        self.accruedAmount()
-        self.withheldAmount()
-        self.handedAmount()
+        self.accrued_amount()
+        self.withheld_amount()
+        self.handed_amount()
         self.experience()
 
     def display(self):
@@ -60,17 +60,17 @@ class Payment:
         print(f"Сalculated amount handed out: {round(self.handAmount)}")
         print(f"Experience: {self.exp} year(s)")
 
-    def accruedAmount(self):
+    def accrued_amount(self):
         a = self.salary / self.workingDays
         b = a * self.daysWorked
         percent = self.percent / 100 + 1
         self.amount = b * percent
 
-    def withheldAmount(self):
+    def withheld_amount(self):
         b = (self.salary / self.workingDays) * self.daysWorked
         self.heldAmount = b * (0.13 + 0.01)
 
-    def handedAmount(self):
+    def handed_amount(self):
         self.handAmount = self.amount - self.heldAmount
 
     def experience(self):
