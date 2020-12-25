@@ -13,7 +13,7 @@
 # Начисления представляют собой сумму, начисленную за отработанные дни, и
 # надбавки, то есть доли от первой суммы. Удержания представляют собой отчисления в
 # пенсионный фонд (1% от начисленной суммы) и подоходный налог. Подоходный налог
-# составляет 13% от начисленной суммы без отчислений в пенсионный фонд
+# составляет 13% от начисленной суммы без отчислений в пенсионный фонд.
 
 
 class Payment:
@@ -25,15 +25,15 @@ class Payment:
         self.percent = float(percent)
         self.days_worked = int(days_worked)
         self.working_days = int(working_days)
-        self.amount = 0
-        self.held_amount = 0
-        self.hand_amount = 0
-        self.exp = 0
+        # self.amount = 0
+        # self.held_amount = 0
+        #self.hand_amount = 0
+        #self.exp = 0
 
-        self.accrued_amount()
-        self.withheld_amount()
-        self.handed_amount()
-        self.experience()
+        #self.accrued_amount()
+        #self.withheld_amount()
+        #self.handed_amount()
+        #self.experience()
 
     def read(self):
         full_name = input('Enter your full name: ')
@@ -50,35 +50,52 @@ class Payment:
         self.days_worked = int(days_worked)
         self.working_days = int(working_days)
 
-        self.accrued_amount()
-        self.withheld_amount()
-        self.handed_amount()
-        self.experience()
+        # self.accrued_amount()
+        # self.withheld_amount()
+        # self.handed_amount()
+        # self.experience()
 
     def display(self):
-        print(f"Accrued amount: {round(self.amount)}")
-        print(f"Withholding amount: {round(self.held_amount)}")
-        print(f"Сalculated amount handed out: {round(self.hand_amount)}")
-        print(f"Experience: {self.exp} year(s)")
+        print(f"{self.full_name}")
+        print(f"{self.salary}")
+        print(f"{self.year}")
+        print(f"{self.percent}")
+        print(f"{self.days_worked}")
+        print(f"{self.working_days}")
+        #print(f"Withholding amount: {round(self.held_amount)}")
+        #print(f"Сalculated amount handed out: {round(self.hand_amount)}")
+        #print(f"Experience: {self.exp} year(s)")
 
     def accrued_amount(self):
         a = self.salary / self.working_days
         b = a * self.days_worked
         percent = self.percent / 100 + 1
-        self.amount = b * percent
+        # self.amount = b * percent
+        return print(b * percent)
 
     def withheld_amount(self):
         b = (self.salary / self.working_days) * self.days_worked
-        self.held_amount = b * (0.13 + 0.01)
+        #self.held_amount = b * (0.13 + 0.01)
+        return print(b * (0.13 + 0.01))
 
     def handed_amount(self):
-        self.hand_amount = self.amount - self.held_amount
+        a = self.salary / self.working_days
+        b = a * self.days_worked
+        percent = self.percent / 100 + 1
+        #self.hand_amount = self.amount - self.held_amount
+        return b * percent - (self.salary / self.working_days) * self.days_worked
 
     def experience(self):
-        self.exp = 2020 - self.year
+        #self.exp = 2020 - self.year
+        return 2020 - self.year
 
 
 if __name__ == '__main__':
     r1 = Payment()
     r1.read()
     r1.display()
+    print(r1.accrued_amount())
+    print(r1.withheld_amount())
+    print(r1.handed_amount())
+    print(r1.experience())
+
