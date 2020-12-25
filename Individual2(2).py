@@ -15,23 +15,22 @@ class Number:
         self.num = float(num)
 
     def truediv(self, other):
-        return Number(self.num + other.num)
+        return Number(self.num / other.num)
 
     def sub(self, other):
-        return self.num-other.num
+        return Number(self.num - other.num)
+
 
 class Real(Number):
-    def __init__(self, num=0):
-        super(Real, self).__init__()
+    def super(Real, self).__init__(num):
         self.num = float(num)
 
     def sqrtn(self, n):
-        return self.num ** (1/n)
+        return self.num ** (1 / n)
 
 
 if __name__ == '__main__':
-    r1 = Number()
+    r1 = Number(3)
+    r2 = Real(5)
 
-    r2 = Real()
-
-    print(r1.truediv(r1))
+    print(r1.truediv(r1/r2))
