@@ -71,12 +71,12 @@ class Payment:
         b = a * self.days_worked
         percent = self.percent / 100 + 1
         # self.amount = b * percent
-        return print(b * percent)
+        return b * percent
 
     def withheld_amount(self):
         b = (self.salary / self.working_days) * self.days_worked
         #self.held_amount = b * (0.13 + 0.01)
-        return print(b * (0.13 + 0.01))
+        return b * (0.13 + 0.01)
 
     def handed_amount(self):
         a = self.salary / self.working_days
